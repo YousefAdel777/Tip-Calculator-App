@@ -1,0 +1,246 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+:root {
+    --main-color: #00474b;
+    --input-font-size: 1.5rem;
+    --strong-cyan: hsl(172, 67%, 45%);
+    --btn-hover-cyan: #9fe8df;
+    --very-dark-cyan: hsl(183, 44%, 50%);
+    --grayish-cyan: hsl(184, 14%, 56%);
+    --dark-grayish-cyan: hsl(186, 14%, 43%);
+    --light-grayish-cyan: hsl(185, 41%, 84%);
+    --very-light-grayish-cyan: hsl(189, 41%, 97%);
+    --warning-clr: #e65332;
+}
+
+body {
+    font-family: 'Space Mono', monospace;
+}
+
+.container {
+    margin: 0 auto;
+    padding: 0 15px;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+}
+
+@media (min-width: 768px) {
+    .container {
+        width: 750px;
+    }
+}
+
+@media (min-width: 992px) {
+    .container {
+        width: 950px;
+    }
+}
+
+.page {
+    min-height: 100svh;
+    background-color: var(--light-grayish-cyan);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.page .logo {
+    margin-bottom: 5.375rem;
+}
+
+.page .calc {
+    padding: 2rem;
+    border-radius: 14px;
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.calc .inputs {
+    flex-basis: 44%;
+}
+
+.calc .inputs .title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.75rem;
+}
+
+.calc .inputs .title .warning {
+    color: var(--warning-clr);
+}
+
+.calc .inputs input {
+    display: block;
+    border-radius: 6px;
+    text-align: right;
+    padding: 0.75rem 1rem;
+    border: none;
+    outline: none;
+    font-size: var(--input-font-size);
+    color: var(--main-color);
+    background-color: var(--very-light-grayish-cyan);
+    width: 100%;
+    caret-color: var(--strong-cyan);
+}
+
+
+.calc .inputs input:focus {
+    outline: 3px solid var(--strong-cyan);
+}
+
+.calc .inputs input.warning {
+    outline: 3px var(--warning-clr) solid;
+}
+
+.calc .inputs input::placeholder {
+    color: var(--grayish-cyan);
+}
+
+.calc .inputs p {
+    color: var(--dark-grayish-cyan);
+}
+
+.calc .inputs label {
+    position: relative;
+}
+
+.calc .inputs label img {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.calc .inputs .bill {
+    margin-bottom: 2.5rem;
+}
+
+.calc .options {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(7.125rem, 1fr));
+    gap: 1rem;
+    font-size: var(--input-font-size);
+    margin-bottom: 2.5rem;
+}
+
+.calc .options input {
+    padding: 1rem .75rem;
+}
+
+.calc .options input::placeholder {
+    color: #567877;
+    text-align: center;
+}
+
+.calc .options button {
+    background-color: var(--main-color);
+    border: none;
+    color: var(--very-light-grayish-cyan);
+    border-radius: 6px;
+    padding: 1rem .75rem;
+    transition: .3s;
+    cursor: pointer;
+}
+
+.calc .options button.active {
+    background-color: var(--strong-cyan);
+    color: var(--main-color);
+}
+
+.calc .options button:hover {
+    color: var(--main-color);
+    background-color: var(--btn-hover-cyan);
+}
+
+.calc .results {
+    padding: 2.5rem;
+    padding-top: 3.25rem;
+    border-radius: 14px;
+    background-color: var(--main-color);
+    display: flex;
+    flex-flow: column wrap;
+    flex-basis: 50%;
+}
+
+.calc .results > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 3.5rem;
+}
+
+.calc .results .text h3 {
+    color: var(--very-light-grayish-cyan);
+    margin-bottom: .5rem;
+}
+
+.calc .results .text p {
+    color: var(--grayish-cyan);
+}
+
+.calc .results .value {
+    color: var(--strong-cyan);
+    font-size: 2.75rem;
+}
+
+.calc .results .reset {
+    margin-top: auto;
+    padding: 1rem;
+    background-color: #0d686d;
+    color: #096165;
+    border: none;
+    border-radius: 6px;
+    font-size: var(--input-font-size);
+    transition: .3s;
+}
+
+.calc .results .reset.active {
+    background-color: var(--strong-cyan);
+    cursor: pointer;
+}
+
+.calc .results .reset.active:hover {
+    background-color: var(--btn-hover-cyan);
+}
+
+@media (max-width: 767px) {
+    .page .calc {
+        flex-flow: column;
+        border-radius: 30px 30px 0 0;
+        gap: 2rem;
+        padding: 1.5rem;
+    }
+    .container {
+        padding: 0;
+        width: 100%;
+    }
+    .calc .results {
+        padding: 1.5rem;
+    }
+    .calc .results .reset {
+        padding: .75rem;
+    }
+    .calc .results .value {
+        font-size: 2.25rem;
+    }
+    .page .logo {
+        margin-top: 4rem;
+        margin-bottom: 2.5rem;
+    }
+}
